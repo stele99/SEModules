@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?
 
 	class IRSender extends IPSModule {
@@ -178,6 +177,4 @@
         SetValue($this->GetIDForIdent($Ident), $value);        
     }
 }
-
->>>>>>> origin/master
 ?>
