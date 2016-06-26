@@ -19,8 +19,8 @@
 			parent::ApplyChanges();
 		}
     private function iSend($command, $rep=2){
-      $host = $this->ReadPropertyString("PORT");
-      $port = $this->ReadPropertyString("IP");
+      $port = $this->ReadPropertyString("PORT");
+      $host = $this->ReadPropertyString("IP");
       $remote = $this->ReadPropertyString("REMOTE");
       
       $fp = pfsockopen( "tcp://$host", $port, $errno, $errstr );
