@@ -86,8 +86,7 @@
           $rep = $repeat[$cmd];
         }else{
           $rep = 2;
-        }
-        
+        }         
         $this->iSend($cmd,$rep);        
         SetValue($this->GetIDForIdent($Ident), $value);        
     }
