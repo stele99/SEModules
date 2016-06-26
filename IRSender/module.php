@@ -66,21 +66,19 @@
       	 $MapButton[1] = "KEY_VOLUMEUP";
       	 $MapButton[2] = "KEY_VOLUMEDOWN";
       	 $MapButton[3] = "KEY_MUTE";     
-         
+           
         switch($Ident) {
             case "BUTTONS":
-                          $this->iSend($MapButtons[$value]);
+                          $this->iSend($MapButton[$value]);
                 break;
             
             case "INPUT":
                           $this->iSend($MapInput[$value]);
                 break;
-
-
-
-            default:
+          default:
                 throw new Exception("Invalid Ident");
         }
+        SetValue($this->GetIDForIdent($Ident), $value);        
     }
 }
 
