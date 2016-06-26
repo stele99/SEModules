@@ -24,7 +24,7 @@
       $remote = $this->ReadPropertyString("REMOTE");
       
       $fp = pfsockopen( "tcp://$host", $port, $errno, $errstr );
-      $write = fwrite( $fp, "SEND_ONCE $remote $cmd | $rep" );
+      $write = fwrite( $fp, "SEND_ONCE $remote $command | $rep" );
       fclose($fp);  
     }
     
