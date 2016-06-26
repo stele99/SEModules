@@ -8,25 +8,40 @@
 			
 			$this->RegisterPropertyString("PORT", 0);
 			$this->RegisterPropertyString("IP", "");
+      $this->RegisterPropertyString("REMOTE", "");       
+      $this->RegisterVariableBoolean("POWER", "Power", "~Switch");
+      $this->EnableAction("POWER");
+      
 		}
 	
 		public function ApplyChanges() {
 			//Never delete this line!
 			parent::ApplyChanges();
 		}
-    private function iSend($remote, $command, $rep){
+    private function iSend($command, $rep=2){
       $host = $this->ReadPropertyString("PORT");
       $port = $this->ReadPropertyString("IP");
+      $remote = $this->ReadPropertyString("REMOTE");
       
       $fp = pfsockopen( "tcp://$host", $port, $errno, $errstr );
-      $write = fwrite( $fp, "SEND_ONCE pioneer $cmd | $rep" );
+      $write = fwrite( $fp, "SEND_ONCE $remote $cmd | $rep" );
       fclose($fp);  
     }
     
-    public function SendCommand($remote, $command, $repeat = 2){
-           $this->iSend($remote,$command, $repeat);
+    public function SendCommand($cmd, $repeat=2){
+        $this->iSend($cmd,$repeat);
     }
-		
-	}
+    
+    
+    public function RequestAction($Ident, $value) {        
+        switch($Ident) {
+            case "POWER":
+                          $this->iSend("KEY_POWER");
+                break;
+            default:
+                throw new Exception("Invalid Ident");
+        }
+    }
+}
 
 ?>

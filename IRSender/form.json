@@ -1,7 +1,8 @@
 {
 	"elements":
 	[
-		{ "name": "IP", "type": "ValidationTextBox", "caption": "IP-Adresse Empfänger" },
-		{ "name": "PORT", "type": "NumberSpinner", "caption": "Port" , "digits" : "0"}
+		{ "name": "IP", "type": "ValidationTextBox", "caption": "IP-Adresse" },
+		{ "name": "PORT", "type": "NumberSpinner", "caption": "Port" , "digits" : "0"},
+  { "name": "REMOTE", "type": "ValidationTextBox", "caption": "Fernbedienung" }  
 	]
 }
