@@ -1,0 +1,7 @@
+{
+	"elements":
+	[
+		{ "name": "IP", "type": "ValidationTextBox", "caption": "IP-Adresse Empfänger" },
+		{ "name": "PORT", "type": "NumberSpinner", "caption": "Port" , "digits" : "0"}
+	]
+}
